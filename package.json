@@ -1,0 +1,11 @@
+{
+  "name": "dinnerparty",
+  "version": "1.0.0",
+  "description": "dinner party app to show who is bringing what",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jimin Park",
+  "license": "ISC"
+}
