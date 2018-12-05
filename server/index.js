@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const path = require('path');
+const db = require('./db/db.js');
 
 app.use(morgan('dev'));
 
@@ -23,6 +24,10 @@ app.use(function(err, req, res, next) {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, function() {
-  console.log(`Your server is listening on port ${port} yo`);
-});
+
+db.sync() // sync our database
+  .then(function() {
+    app.listen(port, function() {
+      console.log(`Your server is listening on port ${port} yo`);
+    }); // then start listening with our express server once we have synced
+  });
